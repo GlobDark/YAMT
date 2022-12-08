@@ -1,0 +1,95 @@
+<nav class="sidebar close canvas">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="https://cdn.discordapp.com/avatars/<%= req.session.userinfo.id%>/<%= req.session.userinfo.avatar%>.jpg?size=1024" alt="Avatar">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name"><%= req.session.userinfo.username%></span>
+                    <span class="profession">Plan: <%= packagename.charAt(0).toUpperCase() + packagename.slice(1) %></span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="../dashboard">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="../servers/new">
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <span class="text nav-text">Create Server</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="../credentials">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">User system</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="../gift">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Gift Coins</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="../store">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Resources Store</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="../redeem">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Redeem Coupon</span>
+                        </a>
+                    </li>
+
+                    <% if (settings.stripe.enabled == true) { %>
+                    <li class="nav-link">
+                        <a href="../buy">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Buy coins</span>
+                        </a>
+                    </li>
+                    <% } %>
+
+                    <% if (pterodactyl.root_admin == true) { %>
+                    <li class="nav-link">
+                        <a href="../admin">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Admin</span>
+                        </a>
+                    </li>
+                    <% } %>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="../logout">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>

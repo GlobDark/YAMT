@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('../../Components/Header.ejs') %>
+<%- include('../../Routers/Navigation.ejs') %>
+
+<body>
+
+    <section class="home">
+
+        <nav class="navbar-primary">
+            <div class="btns">
+                <i class='bx bx-chevron-right toggle2'></i>
+                <a class="coins-user" href="#"> Coins: <span id="balance"></span> </a>
+                <a class="create-server" href="../servers/new"> New Server </a>
+                <p><code>v<%= settings.version.replace(/"/g, `\\\\"`) %></code></p>
+            </div>
+
+            <script>
+                let balance = document.getElementById("balance")
+                balance.textContent = Math.floor(<%= coins %> * 100) / 100
+            </script>
+        </nav>
+
+        <main>
+            <div class="fluid">
+
+                <div class="row">
+                    <div class="col-md-6 grid-margin stretch-card">
+                        <div class="card-store">
+                                <div class="card-body">
+                                    <form class="forms-sample" action="/buycpu">
+                                        <div class="form-group">
+                                            <label>CPU:</label><br>
+                                            <select name="amount" class="form-control">
+                                                <option value=1><%= settings.api.client.coins.store.cpu.per %>% CPU - <%= settings.api.client.coins.store.cpu.cost %> coins</option>
+                                                <option value=2><%= settings.api.client.coins.store.cpu.per * 2 %>% CPU - <%= settings.api.client.coins.store.cpu.cost * 2 %> coins</option>
+                                            </select>
+                                        </div><br>
+                                        <button class="btn btn-edit" type="submit">Purchase</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card-store">
+                                <div class="card-body">
+                                    <form class="forms-sample" action="/buyram">
+                                        <div class="form-group">
+                                            <label>RAM:</label><br>
+                                            <select name="amount" class="form-control">
+                                                <option value=1><%= settings.api.client.coins.store.ram.per %>MB RAM - <%= settings.api.client.coins.store.ram.cost %> coins</option>
+                                                <option value=2><%= settings.api.client.coins.store.ram.per * 2 %>MB RAM - <%= settings.api.client.coins.store.ram.cost * 2 %> coins</option>
+                                                <option value=3><%= settings.api.client.coins.store.ram.per * 3 %>MB RAM - <%= settings.api.client.coins.store.ram.cost * 3 %> coins</option>
+                                                <option value=4><%= settings.api.client.coins.store.ram.per * 4 %>MB RAM - <%= settings.api.client.coins.store.ram.cost * 4 %> coins</option>
+                                            </select>
+                                        </div><br>
+                                        <button class="btn btn-edit" type="submit">Purchase</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card-store">
+                                <div class="card-body">
+                                    <form class="forms-sample" action="/buydisk">
+                                        <div class="form-group">
+                                            <label>Disk:</label><br>
+                                            <select name="amount" class="form-control">
+                                                <option value=1><%= settings.api.client.coins.store.disk.per %>MB Disk - <%= settings.api.client.coins.store.disk.cost %> coins</option>
+                                                <option value=2><%= settings.api.client.coins.store.disk.per * 2 %>MB Disk - <%= settings.api.client.coins.store.disk.cost * 2 %> coins</option>
+                                                <option value=3><%= settings.api.client.coins.store.disk.per * 3 %>MB Disk - <%= settings.api.client.coins.store.disk.cost * 3 %> coins</option>
+                                                <option value=4><%= settings.api.client.coins.store.disk.per * 4 %>MB Disk - <%= settings.api.client.coins.store.disk.cost * 4 %> coins</option>
+                                                <option value=5><%= settings.api.client.coins.store.disk.per * 5 %>MB Disk - <%= settings.api.client.coins.store.disk.cost * 5 %> coins</option>
+                                            </select>
+                                        </div><br>
+                                        <button class="btn btn-edit" type="submit">Purchase</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card-store">
+                                <div class="card-body">
+                                    <form class="forms-sample2" action="/buyservers">
+                                        <div class="form-group2">
+                                            <label>Servers:</label><br>
+                                            <select name="amount" class="form-control">
+                                                <option value=1><%= settings.api.client.coins.store.servers.per %> Server - <%= settings.api.client.coins.store.servers.cost %> coins</option>
+                                                <option value=2><%= settings.api.client.coins.store.servers.per * 2 %> Servers - <%= settings.api.client.coins.store.servers.cost * 2 %> coins</option>
+                                                <option value=3><%= settings.api.client.coins.store.servers.per * 3 %> Servers - <%= settings.api.client.coins.store.servers.cost * 3 %> coins</option>
+                                                <option value=4><%= settings.api.client.coins.store.servers.per * 4 %> Servers - <%= settings.api.client.coins.store.servers.cost * 4 %> coins</option>
+                                            </select>
+                                        </div><br>
+                                        <button class="btn btn-edit" type="submit">Purchase</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </main>
+
+    </section>
+
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+
+</body>
+</html>
